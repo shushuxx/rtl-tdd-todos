@@ -6,7 +6,7 @@ const TodoApp = () => {
     const [ todos, setTodos ] = useState([
         {
             id: 1,
-            text: 'TDD배우기',
+            text: 'TDD 배우기',
             done: true
         },
         {
@@ -33,10 +33,20 @@ const TodoApp = () => {
         [todos]
     );
 
+    const onToggle = useCallback(
+        id => {
+            setTodos(
+                todos.map(todo =>
+                    todo.id === id ? { ...todo, done: !todo.done } : todo)
+            );
+        },
+        [todos]
+    );
+
     return (
         <>
         <TodoForm onInsert={onInsert} />
-        <TodoList todos={todos} />
+        <TodoList todos={todos} onToggle={onToggle} />
         </>
     );
 };
