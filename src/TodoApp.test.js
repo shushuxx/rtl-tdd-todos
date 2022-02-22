@@ -21,7 +21,7 @@ describe('<TodoApp />', () => {
         fireEvent.change(getByPlaceholderText('할 일을 입력하세요'), {
             target: {
                 value: '새 항목 추가하기'
-            }
+            },
         });
         fireEvent.click(getByText('등록'));
         //해당 항목이 보여져야합니다.
@@ -42,7 +42,7 @@ describe('<TodoApp />', () => {
     it('remove todo', () => {
         const { getByText } = render(<TodoApp />);
         const todoText = getByText('TDD 배우기');
-        const removeButton =  todoText.nextSibling;
+        const removeButton = todoText.nextSibling;
         fireEvent.click(removeButton);
         expect(todoText).not.toBeInTheDocument(); //페이지에서 사라졌음을 의미함
     });

@@ -7,12 +7,12 @@ describe('<TodoList />', () => {
         {
             id: 1,
             text: 'TDD 배우기',
-            done: true
+            done: true,
         },
         {
             id: 2,
             text: 'react-testing-library 사용하기',
-            done: true
+            done: true,
         }
     ];
 
@@ -26,7 +26,11 @@ describe('<TodoList />', () => {
         const onToggle = jest.fn();
         const onRemove = jest.fn();
         const { getByText, getAllByText } = render(
-            <TodoList todos={sampleTodos} onToggle={onToggle} onRemove={onRemove} />
+            <TodoList 
+            todos={sampleTodos} 
+            onToggle={onToggle} 
+            onRemove={onRemove} 
+            />
         );
 
         fireEvent.click(getByText(sampleTodos[0].text));

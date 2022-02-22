@@ -31,12 +31,7 @@ describe('<TodoItem />', () => {
 
     it('does not show line-through on span when done is false', () => {
         const { span } = setup({ todo: { ... sampleTodo, done: false } });
-        expect(span).not.toHaveStyle('text-decoration:line-throught;');
-    });
-
-    it('show line-throught on span when done is true', () => {
-        const { span } = setup ({ todo: { ...sampleTodo, done: true } });
-        expect(span).toHaveStyle('text-decoration: line-throught;');
+        expect(span).not.toHaveStyle('text-decoration: line-throught;');
     });
 
     it('calls onToggle', () => {

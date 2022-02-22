@@ -7,24 +7,22 @@ const TodoApp = () => {
         {
             id: 1,
             text: 'TDD 배우기',
-            done: true
+            done: true,
         },
         {
             id: 2,
             text: 'react-testing-library 배우기',
-            done: true
+            done: true,
         },
     ]);
     const nextId = useRef(3); //새로 추가 할 항목에서 사용 할 id
-
     const onInsert = useCallback(
-        text => {
-            //새 항목 추가 후
+        (text) => {
             setTodos(todos =>
                 todos.concat({
                     id: nextId.current,
                     text,
-                    done: false
+                    done: false,
                 })
             );
             //nextId 값에 1 더하기
@@ -33,7 +31,7 @@ const TodoApp = () => {
         []);
 
     const onToggle = useCallback(
-        id => {
+        (id) => {
             setTodos(todos =>
                 todos.map(todo =>
                     todo.id === id ? { ...todo, done: !todo.done } : todo)
@@ -42,16 +40,16 @@ const TodoApp = () => {
         []);
 
     const onRemove = useCallback(
-        id => {
+        (id) => {
             setTodos(todos => todos.filter(todo => todo.id !== id));
         },
         []);
 
     return (
-        <>
-        <TodoForm onInsert={onInsert} />
+        <div>
+        <TodoForm data-testid='helloworld' onInsert={onInsert} />
         <TodoList todos={todos} onToggle={onToggle} onRemove={onRemove}/>
-        </>
+        </div>
     );
 };
 
