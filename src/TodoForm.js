@@ -8,7 +8,7 @@ const TodoForm = ({onInsert}) => {
     const onSubmit = useCallback(e => {
         onInsert(value);
         setValue('');
-        e.preventDafault();
+        e.preventDefault();
     }, [onInsert,value]);
     return (
         <form onSubmit={onSubmit}>
