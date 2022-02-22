@@ -13,9 +13,9 @@ const TodoItem = ({ todo, onToggle, onRemove }) => {
                 >
                     {text}
                 </span>
-            <button onClick={() => onRemove(id)}>삭제</button>
+            <button onClick={remove}>삭제</button>
         </li>
     );
 };
 
-export default TodoItem;
+export default React.memo(TodoItem);
