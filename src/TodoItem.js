@@ -8,7 +8,7 @@ const TodoItem = ({ todo, onToggle, onRemove }) => {
     return (
         <li>
             <span
-                style={{textDecoration: done ? 'line-throught' : 'none'}}
+                style={{textDecoration: done ? 'line-through' : 'none'}}
                 onClick={toggle}
                 >
                     {text}

@@ -32,11 +32,11 @@ describe('<TodoApp />', () => {
         const { getByText } = render(<TodoApp />);
         //TDD 배우기 항목에 클릭 이벤트를 발생키시고 text-decoration 속성이 설정되는지 확인
         const todoText = getByText('TDD 배우기');
-        expect(todoText).toHaveStyle('text-decoration: line-throught;');
+        expect(todoText).toHaveStyle('text-decoration: line-through;');
         fireEvent.click(todoText);
-        expect(todoText).not.toHaveStyle('text-decoration: line-throught;');
+        expect(todoText).not.toHaveStyle('text-decoration: line-through;');
         fireEvent.click(todoText);
-        expect(todoText).toHaveStyle('text-decoration: line-throught;');
+        expect(todoText).toHaveStyle('text-decoration: line-through;');
     });
 
     it('remove todo', () => {
